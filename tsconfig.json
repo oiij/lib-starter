@@ -4,10 +4,10 @@
   "compilerOptions": {
     "paths": {
       "~/*": [
-        "./src/*"
+        "./packages/*"
       ]
     }
   },
-  "include": ["src", "docs"],
+  "include": ["packages", "docs"],
   "exclude": ["node_modules", "dist", "test"]
 }

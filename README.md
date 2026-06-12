@@ -1,4 +1,4 @@
-# ts-starter
+# lib-starter
 
 <p align="center">
 
@@ -7,7 +7,7 @@
 [![Vitest](https://img.shields.io/badge/Vitest-4.1-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
 [![pnpm](https://img.shields.io/badge/pnpm-9+-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
 [![ESLint](https://img.shields.io/badge/ESLint-10.4-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/oiij/ts-starter/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/oiij/lib-starter/blob/main/LICENSE)
 
 </p>
 
@@ -22,6 +22,7 @@ A modern TypeScript library starter template with built-in development tools and
 - 📝 **Commitlint** - Conventional commit messages
 - 🪝 **Git Hooks** - Pre-commit hooks with simple-git-hooks
 - 🔄 **pnpm** - Fast, disk space efficient package manager
+- 📖 **VitePress** - Documentation site
 
 ## Quick Start
 
@@ -34,8 +35,8 @@ A modern TypeScript library starter template with built-in development tools and
 
 ```bash
 # Clone the repository
-git clone https://github.com/oiij/ts-starter.git
-cd ts-starter
+git clone https://github.com/oiij/lib-starter.git
+cd lib-starter
 
 # Install dependencies
 pnpm install
@@ -83,6 +84,19 @@ pnpm lint
 pnpm lint:fix
 ```
 
+## Documentation
+
+```bash
+# Start docs dev server
+pnpm docs:dev
+
+# Build docs
+pnpm docs:build
+
+# Preview docs
+pnpm docs:preview
+```
+
 ## Committing Changes
 
 This project uses conventional commits with commitlint and cz-git.
@@ -115,15 +129,20 @@ pnpm release
 | `pnpm type:check`  | Run TypeScript type checking                 |
 | `pnpm commit`      | Interactive commit with conventional commits |
 | `pnpm release`     | Bump version and publish                     |
+| `pnpm docs:dev`    | Start docs dev server                        |
+| `pnpm docs:build`  | Build documentation                          |
+| `pnpm docs:preview`| Preview documentation                        |
 | `pnpm update:deps` | Update dependencies interactively            |
 
 ## Project Structure
 
 ```
-ts-starter/
-├── src/              # Source code
+lib-starter/
+├── packages/         # Library source code
+│   └── index.ts
 ├── test/             # Test files
 ├── dist/             # Build output
+├── docs/             # VitePress documentation
 ├── package.json      # Package configuration
 ├── tsconfig.json     # TypeScript configuration
 ├── tsdown.config.ts  # tsdown configuration

@@ -1,18 +1,18 @@
 {
-  "name": "ts-starter",
+  "name": "lib-starter",
   "type": "module",
   "version": "0.0.1",
-  "description": "A starter template for TypeScript projects",
+  "description": "A starter template for TypeScript library projects",
   "author": "oiij",
   "license": "MIT",
-  "homepage": "https://github.com/oiij/ts-starter",
+  "homepage": "https://github.com/oiij/lib-starter",
   "repository": {
     "type": "git",
-    "url": "git@github.com:oiij/ts-starter.git"
+    "url": "git@github.com:oiij/lib-starter.git"
   },
-  "bugs": "https://github.com/oiij/ts-starter/issues",
+  "bugs": "https://github.com/oiij/lib-starter/issues",
   "keywords": [
-    "ts-starter"
+    "lib-starter"
   ],
   "sideEffects": false,
   "main": "./dist/index.mjs",
@@ -27,7 +27,10 @@
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsc --noEmit && tsdown",
-    "start": "pnpx esno src/index.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "start": "pnpx esno packages/index.ts",
     "test": "vitest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -43,20 +46,22 @@
     "postinstall": "pnpm simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^9.0.0",
-    "@oiij/tsconfig": "^0.0.4",
-    "@types/node": "^25.9.3",
-    "@vitest/ui": "^4.1.8",
-    "commitlint": "^21.0.2",
-    "cz-git": "^1.13.1",
-    "czg": "^1.13.1",
-    "eslint": "^10.4.1",
-    "lint-staged": "^17.0.7",
-    "simple-git-hooks": "^2.13.1",
-    "tsdown": "^0.22.2",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.8"
+    "@antfu/eslint-config": "catalog:",
+    "@oiij/tsconfig": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/ui": "catalog:",
+    "commitlint": "catalog:",
+    "cz-git": "catalog:",
+    "czg": "catalog:",
+    "eslint": "catalog:",
+    "lint-staged": "catalog:",
+    "simple-git-hooks": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitepress": "catalog:",
+    "vitepress-demo-plugin": "catalog:",
+    "vitest": "catalog:"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged && pnpm type:check"

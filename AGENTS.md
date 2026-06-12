@@ -13,8 +13,10 @@ pnpm test           # vitest (globals enabled)
 pnpm lint           # eslint (antfu config)
 pnpm lint:fix       # eslint --fix
 pnpm type:check     # tsc --noEmit
-pnpm start          # nr src/index.ts (run source directly)
+pnpm start          # pnpx esno src/index.ts (run source directly)
 pnpm commit         # git pull → add → czg interactive → push
+pnpm docs:dev       # vitepress dev docs
+pnpm docs:build     # vitepress build docs
 ```
 
 ## Verification order
@@ -24,15 +26,17 @@ pnpm commit         # git pull → add → czg interactive → push
 ## Conventions
 
 - ESLint: `@antfu/eslint-config`. No Prettier.
-- Path alias: `~/*` maps to `src/*` (defined in tsconfig).
+- Path alias: `~/*` maps to `packages/*` (defined in tsconfig).
 - Base tsconfig: `@oiij/tsconfig/tsconfig.json`.
 - Tests in `test/` directory, file pattern `*.test.ts`.
-- Entry: `src/index.ts`. Output: `dist/index.mjs` + `dist/index.d.mts`.
+- Entry: `packages/index.ts`. Output: `dist/index.mjs` + `dist/index.d.mts`.
 - Commits: conventional commits via `czg`. Use `pnpm commit` for interactive prompt.
 - Pre-commit hook (simple-git-hooks): runs `lint-staged` + `type:check` on staged `*.{js,jsx,ts,tsx}` files.
+- Consistent type definitions: `type` (not `interface`), enforced by ESLint rule.
 
 ## Structure
 
-- `src/` — library source code
+- `packages/` — library source code
 - `test/` — unit tests (vitest)
 - `dist/` — build output (gitignored)
+- `docs/` — VitePress documentation site
